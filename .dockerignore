@@ -1,0 +1,10 @@
+# Ignoring gitlab ci
+.gitlab-ci.yml
+
+#Ignoring git and cache folders
+.git
+.cache
+
+#Ignoring all the markdown and class files
+*.md
+**/*.class

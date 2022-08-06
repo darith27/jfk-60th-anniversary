@@ -1,0 +1,10 @@
+livenessProbe:
+  path: "/"
+readinessProbe:
+  path: "/"
+
+ingress:
+  path: /jfk-60th-anniversary(/|$)(.*)
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+
