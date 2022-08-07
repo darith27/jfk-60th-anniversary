@@ -1,3 +1,10 @@
-# vue3-vite-router-starter-vgkjhn
+# Run Locally
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/vue3-vite-router-starter-vgkjhn)
+For rirst time clone, create new new branch based off of master and run `npm install && npm run dev`
+
+Run `npm run dev` to spin up the dev env (press CTRL + C to stop)
+
+## Run Locally with Docker
+For Windows users, make sure Docker Desktop is running
+
+Run `docker-compose up --build frontend`
