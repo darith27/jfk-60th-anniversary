@@ -1,15 +1,25 @@
-FROM node:14-alpine as build
+# BUILD STAGE WITH NODE/NPM
+FROM node:14-alpine3.16 as build
 
-ARG NODE_ENV
-ENV NODE_ENV=${NODE_ENV}
+# COPY IN PROJECT TO CONTAINER IMAGE
+COPY . .
+ 
+# INSTALL BUILD DEPS
+RUN npm ci
 
-COPY . ./
-RUN npm ci && npm run build
+#SET NODE_ENV TO BUILD FOR PRODUCTION
+ENV NODE_ENV=production
 
-FROM nginx:1.19-alpine
-RUN apk update && apk upgrade
+#BUILD DIST FOLDER
+RUN npm run build
 
-COPY --from=build /dist /usr/share/nginx/html/
+# NGINX alpine distribution base image
+FROM nginx:latest
 
-COPY /default.conf /etc/nginx/conf.d/default.conf
+#COPY ROOT DIST FOLDER
+COPY --from=build dist/ /usr/share/nginx/html
 
+# ADD OUR NGINX CONFIGURATION FILE TO SERVE OUR HTML PAGE
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 5000
