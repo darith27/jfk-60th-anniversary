@@ -1,3 +1,8 @@
+<script setup>
+import TheNavBar from './components/TheNavBar.vue'
+</script>
+
+
 <template>
   <header id="header">
       <div id="logo">
@@ -6,12 +11,7 @@
         /></a>
       </div>
       <nav>
-        <ul id="desktop-menu">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/history">History</router-link></li>
-          <li><router-link to="/watch-party">Watch Party</router-link></li>
-          <li><a href="#footer">Share</a></li>
-        </ul>
+        <TheNavBar></TheNavBar>
       </nav>
     </header>
   <main>

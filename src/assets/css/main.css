@@ -3479,15 +3479,14 @@ body.is-touch .spotlight {
 
 #main-menu,
 #desktop-menu a {
+  border: solid 1px transparent;
   font-size: 22px;
-  color: white !important;
+  color: white;
   font-weight: 600;
   font-family: 'Titillium Web', sans-serif;
 }
 #desktop-menu a:focus {
-  border: solid 1px white;
-  padding: 0 5px;
-  box-sizing: border-box;
+  text-decoration: 1px underline #e44c65;
 }
 
 #header nav ul li a.button,
@@ -3503,7 +3502,8 @@ body.is-touch .spotlight {
 }
 
 #header nav ul li.active > a,
-#header nav ul li.active > span {
+#header nav ul li.active > span,
+#desktop-menu a.router-link-active {
   color: #e44c65;
 }
 
